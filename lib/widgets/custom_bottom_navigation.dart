@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:go_crispy/screens/home_screen.dart';
+import 'package:go_crispy/screens/dashboard.dart';
 import 'package:go_crispy/screens/order_history.dart';
 import 'package:go_crispy/screens/settings.dart';
 import 'package:go_crispy/utils/colors.dart';
-
+import 'package:go_crispy/utils/const_images.dart';
 
 class MainScreen extends StatefulWidget {
+  const MainScreen({super.key});
+
   @override
   _MainScreenState createState() => _MainScreenState();
 }
@@ -13,11 +15,10 @@ class MainScreen extends StatefulWidget {
 class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
-  // ignore: prefer_final_fields
-  static List<Widget> _widgetOptions = <Widget>[
-   const DashBoard(),
-   const OrderHistory(),
-   const Settings(),
+  static final List<Widget> _widgetOptions = <Widget>[
+    const DashBoard(),
+    const OrderHistory(),
+    const Settings(),
   ];
 
   void _onItemTapped(int index) {
@@ -43,24 +44,23 @@ class CustomBottomNavBar extends StatelessWidget {
   final ValueChanged<int> onItemTapped;
 
   const CustomBottomNavBar({
-    Key? key,
+    super.key,
     required this.selectedIndex,
     required this.onItemTapped,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
     return Container(
-
       padding: const EdgeInsets.symmetric(vertical: 10),
-      decoration: const BoxDecoration(
+      decoration:const BoxDecoration(
         color: kWhite,
         boxShadow: [
           BoxShadow(
-            color: Color.fromARGB(31, 58, 57, 57),
-            blurRadius: 10,
-            spreadRadius: 5,
-          )
+            offset: Offset(0, -1),
+            blurRadius: 5.6,
+            color: Color(0x36000000),
+          ),
         ],
         borderRadius: BorderRadius.only(
           topLeft: Radius.circular(15),
@@ -71,39 +71,25 @@ class CustomBottomNavBar extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: [
           _buildNavItem(
-            icon: Icons.sentiment_satisfied_outlined,
+            imagePath: Images.dashboard,
             index: 0,
             isSelected: selectedIndex == 0,
             onTap: onItemTapped,
-            label: 'Go Crispy',
+            label: 'Dashboard',
           ),
           _buildNavItem(
-            icon: Icons.shopping_cart,
+            imagePath: Images.orderHistory,
             index: 1,
             isSelected: selectedIndex == 1,
             onTap: onItemTapped,
-            label: 'Cart',
+            label: 'Order History',
           ),
           _buildNavItem(
-            icon: Icons.shopping_bag_outlined,
+            imagePath: Images.settings,
             index: 2,
             isSelected: selectedIndex == 2,
             onTap: onItemTapped,
-            label: 'my order',
-          ),
-          _buildNavItem(
-            icon: Icons.favorite_outline_rounded,
-            index: 3,
-            isSelected: selectedIndex == 3,
-            onTap: onItemTapped,
-            label: 'Favourite',
-          ),
-          _buildNavItem(
-            icon: Icons.filter_list_outlined,
-            index: 4,
-            isSelected: selectedIndex == 4,
-            onTap: onItemTapped,
-            label: 'menu',
+            label: 'Settings',
           ),
         ],
       ),
@@ -111,7 +97,7 @@ class CustomBottomNavBar extends StatelessWidget {
   }
 
   Widget _buildNavItem({
-    required IconData icon,
+    required String imagePath,
     required int index,
     required bool isSelected,
     required ValueChanged<int> onTap,
@@ -119,35 +105,28 @@ class CustomBottomNavBar extends StatelessWidget {
   }) {
     return GestureDetector(
       onTap: () => onTap(index),
-      child: isSelected
-          ? Container(
-              padding: EdgeInsets.symmetric(horizontal: 16, vertical: 8),
-              decoration: BoxDecoration(
-                color: kOrangeColor,
-                borderRadius: BorderRadius.circular(30),
-              ),
-              child: Row(
-                children: [
-                  Icon(
-                    icon,
-                    color: Colors.white,
-                  ),
-                  SizedBox(width: 8),
-                  Text(
-                    label,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
-                ],
-              ),
-            )
-          : Icon(
-              icon,
-              color: Colors.grey,
+      child: Column(
+        mainAxisSize: MainAxisSize.min,
+        children: [
+          SizedBox(
+            height: 32,
+            width: 32,
+            child: Image.asset(
+              imagePath,
+              color: isSelected ? kOrangeColor : kIconColor,
             ),
+          ),
+          const SizedBox(height: 4),
+          Text(
+            label,
+            style: TextStyle(
+              color: isSelected ? kOrangeColor : kIconColor,
+              fontWeight: FontWeight.normal,
+              fontSize: 12,
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
-

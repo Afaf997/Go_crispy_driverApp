@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_crispy/screens/login_driver.dart';
 import 'package:go_crispy/utils/colors.dart';
+import 'package:go_crispy/utils/const_images.dart';
 
 class SelectLanguage extends StatefulWidget {
   const SelectLanguage({Key? key}) : super(key: key);
@@ -33,7 +34,7 @@ class _SelectLanguageState extends State<SelectLanguage> {
       body: Center(
         child: Padding(
           padding: const EdgeInsets.only(bottom: 150),
-          child: Image.asset('assets/images/go_crispy.png', width: 117, height: 160),
+          child: Image.asset(Images.logoImage, width: 117, height: 160),
         ),
       ),
       bottomSheet: ClipRRect(

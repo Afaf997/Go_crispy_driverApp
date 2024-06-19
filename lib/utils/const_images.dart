@@ -4,4 +4,5 @@ class Images {
     static const String orderHistory = 'assets/icons/task-square.png';
     static const String settings = 'assets/icons/setting.png';
     static const String profile = 'assets/images/profile.png';  
+    static const String location = 'assets/icons/location.png';
 }

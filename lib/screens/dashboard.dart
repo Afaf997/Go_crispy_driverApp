@@ -114,7 +114,7 @@ class DashBoard extends StatelessWidget {
                   _buildStatistics(),
                   SizedBox(height: 11),
                   _buildActiveOrdersTitle(),
-                  SizedBox(height: 3),
+                  SizedBox(height: 8),
                   _buildActiveOrderCard(
                     orderId: 'Order ID #00131',
                     location: 'Go Crispy, Al Muntazah Branch',
@@ -202,7 +202,7 @@ class DashBoard extends StatelessWidget {
     required VoidCallback onTakeMeThere,
   }) {
     return Container(
-       height: 143,
+       height: 135,
        width: 353,
        decoration: BoxDecoration(
         color: kWhite,
@@ -264,16 +264,17 @@ class DashBoard extends StatelessWidget {
                 Text('View Details',style: TextStyle(color: kborderyellowColor,fontSize: 12),),
                  ElevatedButton(
   style: ElevatedButton.styleFrom(
-    backgroundColor:ktakeColor,
-    minimumSize: Size(111, 40), // Width and height
+    backgroundColor:kboarder,
+    minimumSize: Size(111, 40),
     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8), // Adjust border radius as needed
+      borderRadius: BorderRadius.circular(8), 
+      side: BorderSide(color:ktakeColor )
     ),
   ),
   onPressed: onViewDetails,
   child: Text(
     'Take em there',
-    style: TextStyle(color:kgreycolor,fontSize: 12), // Text color
+    style: TextStyle(color:kOrangeColor,fontSize: 12,), 
   ),
 ),
                 ElevatedButton(

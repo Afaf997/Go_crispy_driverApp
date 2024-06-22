@@ -12,5 +12,6 @@ const Color kborderyellowColor = Color(0xFFDFA933);
 const Color kbackgroundColor = Color(0xFFF5F5F5);
 const Color ktakeColor = Color(0xFFD6D6D6);
 const Color kboarder = Color(0xFFECECEC);
+const Color kdividercolor = Color(0xFF8F8F8F);
 
 

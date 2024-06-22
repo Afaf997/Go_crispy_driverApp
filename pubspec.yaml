@@ -66,6 +66,10 @@ flutter:
     - assets/icons/task-square.png
     - assets/images/profile.png
     - assets/icons/location.png
+    - assets/icons/logout.png
+    - assets/icons/user-edit.png
+    - assets/icons/privacy_policy.png
+    - assets/icons/termsCondition.png
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -6,7 +6,7 @@ import 'package:go_crispy/utils/colors.dart';
 import 'package:go_crispy/utils/const_images.dart';
 
 class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+  const MainScreen({Key? key}) : super(key: key);
 
   @override
   _MainScreenState createState() => _MainScreenState();
@@ -16,7 +16,7 @@ class _MainScreenState extends State<MainScreen> {
   int _selectedIndex = 0;
 
   static final List<Widget> _widgetOptions = <Widget>[
-    const DashBoard(),
+    const Dashboard(),
     const OrderHistory(),
     const Settings(),
   ];
@@ -44,25 +44,25 @@ class CustomBottomNavBar extends StatelessWidget {
   final ValueChanged<int> onItemTapped;
 
   const CustomBottomNavBar({
-    super.key,
+    Key? key,
     required this.selectedIndex,
     required this.onItemTapped,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     return Container(
       padding: const EdgeInsets.symmetric(vertical: 10),
-      decoration:const BoxDecoration(
+      decoration: BoxDecoration(
         color: kWhite,
         boxShadow: [
           BoxShadow(
-            offset: Offset(0, -1),
+            offset: const Offset(0, -1),
             blurRadius: 5.6,
-            color: Color(0x36000000),
+            color: const Color(0x36000000),
           ),
         ],
-        borderRadius: BorderRadius.only(
+        borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(15),
           topRight: Radius.circular(15),
         ),

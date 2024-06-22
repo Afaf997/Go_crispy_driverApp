@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:go_crispy/utils/colors.dart';
 import 'package:go_crispy/utils/const_images.dart';
 
-class DashBoard extends StatelessWidget {
-  const DashBoard({Key? key}) : super(key: key);
+class Dashboard extends StatelessWidget {
+  const Dashboard({Key? key}) : super(key: key);
 
   @override
-  Widget build(BuildContext context){
+  Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor:kbackgroundColor,
+      backgroundColor: kbackgroundColor,
       body: Stack(
         children: [
           Column(
@@ -17,7 +17,7 @@ class DashBoard extends StatelessWidget {
               Container(
                 width: double.infinity,
                 height: 238,
-                decoration: const BoxDecoration(
+                decoration:const BoxDecoration(
                   color: Colors.black,
                   borderRadius: BorderRadius.only(
                     bottomLeft: Radius.circular(30),
@@ -29,13 +29,13 @@ class DashBoard extends StatelessWidget {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(height: 30),
+                     const SizedBox(height: 30),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                          const Icon(Icons.circle, color: Colors.green, size: 12),
                          const SizedBox(width: 5),
-                         const Text(
+                        const  Text(
                             'Online',
                             style: TextStyle(
                               fontSize: 16,
@@ -50,17 +50,14 @@ class DashBoard extends StatelessWidget {
                               onChanged: (bool newValue) {},
                               activeColor: kWhite,
                               activeTrackColor: kOrangeColor,
-                              
-                              
                             ),
                           ),
                         ],
                       ),
-                     const SizedBox(height: 10),
                      const Row(
                         children: [
                           CircleAvatar(
-                            radius: 40,
+                            radius: 35,
                             backgroundImage: AssetImage(Images.profile),
                           ),
                           SizedBox(width: 10),
@@ -95,6 +92,8 @@ class DashBoard extends StatelessWidget {
                           ),
                         ],
                       ),
+                      SizedBox(height: 5),
+                      Divider(thickness: 0.2),
                     ],
                   ),
                 ),
@@ -118,7 +117,7 @@ class DashBoard extends StatelessWidget {
                     orderId: 'Order ID #00131',
                     location: 'Go Crispy, Al Muntazah Branch',
                     status: 'Pending',
-                    statusColor:kborderyellowColor,
+                    statusColor: kborderyellowColor,
                     onConfirm: () {},
                     onViewDetails: () {},
                     onTakeMeThere: () {},
@@ -185,116 +184,125 @@ class DashBoard extends StatelessWidget {
   }
 
   Widget _buildActiveOrdersTitle() {
-    return const Text(
+    return Text(
       'Active Orders',
       style: TextStyle(fontSize: 20, fontWeight: FontWeight.w700),
     );
   }
 
-  Widget _buildActiveOrderCard({
-    required String orderId,
-    required String location,
-    required String status,
-    required Color statusColor,
-    required VoidCallback onConfirm,
-    required VoidCallback onViewDetails,
-    required VoidCallback onTakeMeThere,
-  }) {
-    return Container(
-       height: 135,
-       width: 353,
-       decoration: BoxDecoration(
-        color: kWhite,
-        borderRadius: BorderRadius.circular(8)
-       ),
-       
-      child: Padding(
-        padding: const EdgeInsets.all(12.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Row(
-              children: [
-                Text(
-                  orderId,
-                  style:const TextStyle(
-                    fontSize: 14,
-                    fontWeight: FontWeight.w400,
+Widget _buildActiveOrderCard({
+  required String orderId,
+  required String location,
+  required String status,
+  required Color statusColor,
+  required VoidCallback onConfirm,
+  required VoidCallback onViewDetails,
+  required VoidCallback onTakeMeThere,
+}) {
+  return Builder(
+    builder: (BuildContext context) {
+      return Container(
+        height: 135,
+        width: MediaQuery.of(context).size.width * 0.9, // Adjust width based on screen width
+        decoration: BoxDecoration(
+          color: kWhite,
+          borderRadius: BorderRadius.circular(8),
+        ),
+        child: Padding(
+          padding: const EdgeInsets.all(12.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    orderId,
+                    style: const TextStyle(
+                      fontSize: 14,
+                      fontWeight: FontWeight.w400,
+                    ),
                   ),
-                ),
-                Spacer(),
-                Container(
-                  width: 63,
-                  height: 18,
-                  decoration: BoxDecoration(
-                    color: statusColor,
-                    borderRadius: BorderRadius.circular(20),
-                  ),
-                  child: Center(
-                    child: Text(
-                      status,
-                      style:const TextStyle(
-                        color: Colors.white,
-                        fontSize: 10,
-                        fontWeight: FontWeight.w500,
+                  Container(
+                    width: MediaQuery.of(context).size.width * 0.18,
+                    height: 18,
+                    decoration: BoxDecoration(
+                      color: statusColor,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    child: Center(
+                      child: Text(
+                        status,
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 10,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
                     ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              children: [
-                Image.asset(Images.location),
-                SizedBox(width: 5),
-                Expanded(
-                  child: Text(
-                    location,
-                    style: TextStyle(fontSize: 14),
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Image.asset(Images.location),
+                  SizedBox(width: 5),
+                  Expanded(
+                    child: Text(
+                      location,
+                      style: TextStyle(fontSize: 14),
+                    ),
                   ),
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text('View Details',style: TextStyle(color: kborderyellowColor,fontSize: 12),),
-                 ElevatedButton(
-  style: ElevatedButton.styleFrom(
-    backgroundColor:kboarder,
-    minimumSize: Size(111, 40),
-    shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8), 
-      side: BorderSide(color:ktakeColor )
-    ),
-  ),
-  onPressed: onViewDetails,
-  child: Text(
-    'Take em there',
-    style: TextStyle(color:kOrangeColor,fontSize: 12,), 
-  ),
-),
-                ElevatedButton(
-                  onPressed: onConfirm,
-                  style: ElevatedButton.styleFrom(
-                    minimumSize: Size(111, 40),
-                     shape: RoundedRectangleBorder(
-      borderRadius: BorderRadius.circular(8), // Adjust border radius as needed
-    ),
-                    backgroundColor:
-                        status == 'Pending' ? kbordergreenColor : kOrangeColor,
+                ],
+              ),
+              SizedBox(height: 10),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    'View Details',
+                    style: TextStyle(color: kborderyellowColor, fontSize: 12),
                   ),
-                  child: Text(status == 'Pending' ? 'Confirm' : 'Cancel',style: TextStyle(fontSize: 12,color: kWhite),),
-                ),
-              ],
-            ),
-          ],
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: kboarder,
+                      minimumSize: Size(MediaQuery.of(context).size.width * 0.25, 40), // Adjust minimum size based on screen width
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                        side: BorderSide(color: ktakeColor),
+                      ),
+                    ),
+                    onPressed: onTakeMeThere,
+                    child: Text(
+                      'Take me there',
+                      style: TextStyle(color: kOrangeColor, fontSize: 12),
+                    ),
+                  ),
+                  ElevatedButton(
+                    onPressed: onConfirm,
+                    style: ElevatedButton.styleFrom(
+                      minimumSize: Size(MediaQuery.of(context).size.width * 0.25, 40), // Adjust minimum size based on screen width
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      backgroundColor:
+                          status == 'Pending' ? kbordergreenColor : kOrangeColor,
+                    ),
+                    child: Text(
+                      status == 'Pending' ? 'Confirm' : 'Cancel',
+                      style: TextStyle(fontSize: 12, color: kWhite),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
         ),
-      ),
-    );
-  }
+      );
+    },
+  );
+}
 
   Widget _buildStatCard({
     required String title,
@@ -318,7 +326,7 @@ class DashBoard extends StatelessWidget {
             left: 10,
             child: Text(
               title,
-              style:const TextStyle(
+              style: TextStyle(
                 color: Colors.white,
                 fontSize: 14,
                 fontWeight: FontWeight.w400,

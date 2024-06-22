@@ -10,4 +10,5 @@ class Images {
   static const String logout = 'assets/icons/logout.png'; 
   static const String userEdit= 'assets/icons/user-edit.png';
   static const String tornado='assets/images/tornado.png';
-}
+  static const String cardTick='assets/icons/card-tick.png';
+} 

@@ -81,21 +81,21 @@ class _LoginDriverState extends State<LoginDriver> {
               ],
             ),
             const Spacer(),
-            Column(
+           const Column(
               mainAxisSize: MainAxisSize.min,
               children: [
-                const ReusableText(
+                 ReusableText(
                   text: 'By clicking "continue" you agree with',
                   color: kgreycolor,
                   fontSize: 12,
                 ),
-                const ReusableText(
+                 ReusableText(
                   text: 'our terms and conditions',
                   color: Colors.black,
                   fontSize: 12,
                   decoration: TextDecoration.underline,
                 ),
-                const SizedBox(height: 15),
+                 SizedBox(height: 15),
                  ReusableNavigationButton(
                   navigationTarget: MainScreen(),
                   buttonText: 'continue',

@@ -43,16 +43,15 @@ class DashBoard extends StatelessWidget {
                               color: Colors.white,
                             ),
                           ),
-                          Container(
-                            width: 50,
-                            height: 18,
-                            child: Transform.scale(
-                              scale: 0.7,
-                              child: Switch(
-                                value: true,
-                                onChanged: (bool newValue) {},
-                                activeColor: kOrangeColor,
-                              ),
+                          Transform.scale(
+                            scale: 0.7,
+                            child: Switch(
+                              value: true,
+                              onChanged: (bool newValue) {},
+                              activeColor: kWhite,
+                              activeTrackColor: kOrangeColor,
+                              
+                              
                             ),
                           ),
                         ],

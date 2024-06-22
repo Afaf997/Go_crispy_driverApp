@@ -9,4 +9,5 @@ class Images {
   static const String termsCondition =  'assets/icons/termsCondition.png'; 
   static const String logout = 'assets/icons/logout.png'; 
   static const String userEdit= 'assets/icons/user-edit.png';
+  static const String tornado='assets/images/tornado.png';
 }

@@ -155,7 +155,7 @@ class SettingsOption extends StatelessWidget {
                 style: TextStyle(
                   color: isLogout ? kOrangeColor : Colors.black,
                   fontSize: 16,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w600,
                 ),
               ),
             ],

@@ -17,6 +17,10 @@ class Wallet extends StatelessWidget {
 
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(onPressed: (){
+          Navigator.pop(context);
+        }, 
+        icon:const Icon(Icons.arrow_back_ios,color: kWhite,size: 19,)),
         toolbarHeight: 90,
         backgroundColor: Colors.black,
         title: const Text('Wallet', style: TextStyle(fontWeight: FontWeight.w700, color: Colors.white, fontSize: 20)),
@@ -79,11 +83,11 @@ class Wallet extends StatelessWidget {
                 children: [
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(transaction['date']!,style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
+                    child: Text(transaction['date']!,style:const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8, left: 14),
-                    child: Text(transaction['amount']!,style: TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
+                    child: Text(transaction['amount']!,style:const TextStyle(fontSize: 14, fontWeight: FontWeight.w600),),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8,right: 4),

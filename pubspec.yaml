@@ -65,6 +65,7 @@ flutter:
     - assets/icons/setting.png
     - assets/icons/task-square.png
     - assets/images/profile.png
+    - assets/images/tornado.png
     - assets/icons/location.png
     - assets/icons/logout.png
     - assets/icons/user-edit.png

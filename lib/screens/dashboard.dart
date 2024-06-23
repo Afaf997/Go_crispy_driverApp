@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:go_crispy/screens/order_details.dart';
 import 'package:go_crispy/utils/colors.dart';
 import 'package:go_crispy/utils/const_images.dart';
 
@@ -260,14 +261,19 @@ Widget _buildActiveOrderCard({
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Text(
-                    'View Details',
-                    style: TextStyle(color: kborderyellowColor, fontSize: 12),
+                  GestureDetector(
+                    onTap: (){
+                      Navigator.push(context, MaterialPageRoute(builder:(context)=>const OrderDetails()));
+                    },
+                    child:const Text(
+                      'View Details',
+                      style: TextStyle(color: kborderyellowColor, fontSize: 12),
+                    ),
                   ),
                   ElevatedButton(
                     style: ElevatedButton.styleFrom(
                       backgroundColor: kboarder,
-                      minimumSize: Size(MediaQuery.of(context).size.width * 0.25, 40), // Adjust minimum size based on screen width
+                      minimumSize: Size(MediaQuery.of(context).size.width * 0.25, 40), 
                       shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(8),
                         side: BorderSide(color: ktakeColor),

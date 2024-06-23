@@ -20,91 +20,86 @@ class OrderHistory extends StatelessWidget {
           ),
         ),
       ),
-      body: GestureDetector(
-        onTap: (){
-          Navigator.push(context, MaterialPageRoute(builder: (context)=>const OrderDetails()));
-        },
-        child: ListView.builder(
-          padding: const EdgeInsets.all(16.0),
-          itemCount: 4,
-          itemBuilder: (context, index) {
-            return Container(
-              height: 119,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                color: kWhite,
-              ),
-              margin: const EdgeInsets.only(bottom: 13.0),
-              child: Padding(
-                padding: const EdgeInsets.all(10.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        const Text(
-                          'Order ID #00131',
-                          style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+      body: ListView.builder(
+        padding: const EdgeInsets.all(16.0),
+        itemCount: 4,
+        itemBuilder: (context, index) {
+          return Container(
+            height: 119,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: kWhite,
+            ),
+            margin: const EdgeInsets.only(bottom: 13.0),
+            child: Padding(
+              padding: const EdgeInsets.all(10.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      const Text(
+                        'Order ID #00131',
+                        style: TextStyle(fontWeight: FontWeight.w600, fontSize: 14),
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          color: kbordergreenColor,
+                          borderRadius: BorderRadius.circular(20.0),
                         ),
-                        Container(
-                          decoration: BoxDecoration(
-                            color: kbordergreenColor,
-                            borderRadius: BorderRadius.circular(20.0),
-                          ),
-                          padding: const EdgeInsets.symmetric(
-                            vertical: 2.0,
-                            horizontal: 8.0,
-                          ),
-                          child: const Text(
-                            'Completed',
-                            style: TextStyle(color: kWhite, fontSize: 12),
-                          ),
+                        padding: const EdgeInsets.symmetric(
+                          vertical: 2.0,
+                          horizontal: 8.0,
                         ),
-                      ],
-                    ),
-                    const SizedBox(height: 6.0), // Adjusted spacing
-                    const Row(
-                      children: [
-                        Icon(Icons.location_on, size: 16.0), // Adjusted icon size
-                        SizedBox(width: 4.0),
-                        Expanded(
-                          child: Text(
-                            '123 Main Street, Anytown, Doha',
-                            style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
-                          ),
+                        child: const Text(
+                          'Completed',
+                          style: TextStyle(color: kWhite, fontSize: 12),
                         ),
-                      ],
-                    ),
-                    const Spacer(), // Adjusted spacing
-                    const Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: [
-                        Text(
-                          'Order at 18 April 2024',
-                          style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, color: kborderTextColor),
+                      ),
+                    ],
+                  ),
+                  const SizedBox(height: 6.0), // Adjusted spacing
+                  const Row(
+                    children: [
+                      Icon(Icons.location_on, size: 16.0), // Adjusted icon size
+                      SizedBox(width: 4.0),
+                      Expanded(
+                        child: Text(
+                          '123 Main Street, Anytown, Doha',
+                          style: TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
                         ),
-                        Column(
-                          children: [
-                            Text('Amount', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
-                            Text(
-                              '225 QR',
-                              style: TextStyle(
-                                fontWeight: FontWeight.bold,
-                                color: kOrangeColor,
-                                fontSize: 24.0,
-                              ),
+                      ),
+                    ],
+                  ),
+                  const Spacer(), // Adjusted spacing
+                  const Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Order at 18 April 2024',
+                        style: TextStyle(fontWeight: FontWeight.w400, fontSize: 10, color: kborderTextColor),
+                      ),
+                      Column(
+                        children: [
+                          Text('Amount', style: TextStyle(fontSize: 12, fontWeight: FontWeight.w400)),
+                          Text(
+                            '225 QR',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: kOrangeColor,
+                              fontSize: 24.0,
                             ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ],
-                ),
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            );
-          },
-        ),
+            ),
+          );
+        },
       ),
     );
   }
